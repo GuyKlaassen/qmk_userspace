@@ -58,10 +58,10 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = LAYOUT_LR(  // Base layer: Magic Sturdy.
-    KC_GRV , XXXXXXX, XXXXXXX, KC_PLUS, KC_MINS, KC_EQL ,
+    KC_GRV , DT_UP  , DT_DOWN, KC_PLUS, KC_MINS, KC_EQL ,
     CW_TOGG, KC_V   , KC_M   , KC_L   , KC_C   , KC_P   ,
     KC_ESC , HRM_S  , HRM_T  , HRM_R  , HRM_D  , KC_Y   ,
-    XXXXXXX, KC_X   , KC_K   , KC_J   , KC_G   , KC_W   ,
+    DT_PRNT, KC_X   , KC_K   , KC_J   , KC_G   , KC_W   ,
                                                  SPC_NAV, KC_ENT,
 
                       KC_LCBR, KC_RCBR, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC,

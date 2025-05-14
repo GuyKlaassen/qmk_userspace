@@ -101,6 +101,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+// CHORDAL HOLD
+///////////////////////////////////////////////////////////////////////////////
+#ifdef CHORDAL_HOLD
+// Handedness for Chordal Hold.
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+  LAYOUT_LR(
+  '*'    , '*'    , '*'    , '*'    , '*'    , '*'    ,
+  '*'    , 'L'    , 'L'    , 'L'    , 'L'    , 'L'    ,
+  '*'    , 'L'    , 'L'    , 'L'    , 'L'    , 'L'    ,
+  '*'    , 'L'    , 'L'    , 'L'    , 'L'    , 'L'    ,
+                                               'L'    , 'L'    ,
+
+                    '*'    , '*'    , '*'    , '*'    , '*'    , '*'    ,
+                    'R'    , 'R'    , 'R'    , 'R'    , 'R'    , '*'    ,
+                    'R'    , 'R'    , 'R'    , 'R'    , 'R'    , '*'    ,
+                    'R'    , 'R'    , 'R'    , 'R'    , 'R'    , '*'    ,
+           'R'    , 'R'
+);
+#endif  // CHORDAL_HOLD
+
+///////////////////////////////////////////////////////////////////////////////
 // TAPPING TERM PER KEY
 ///////////////////////////////////////////////////////////////////////////////
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

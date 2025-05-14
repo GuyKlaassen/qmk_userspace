@@ -3,6 +3,7 @@
 // Tap-hold configuration for home row mods.
 #define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY
+#define CHORDAL_HOLD
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM_PER_KEY
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#define ACTION_DEBUG
+
 // Tap-hold configuration for home row mods.
 #define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY

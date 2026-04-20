@@ -120,12 +120,16 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
            '*'    , '*'
 );
 
-// Exclusion on Chordal Hold
-// "nd" roll in "and" — N should never hold-activate against D
+// Exclusions on Chordal Hold
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
                       uint16_t other_keycode, keyrecord_t *other_record) {
+  // "nd" roll in "and" — N should never hold-activate against D (misfiring cmd+d)
   if (tap_hold_keycode == HRM_N && other_keycode == HRM_D) {
-      return false;  // tap, not hold
+      return false;
+  }
+  // "d[space]" roll — LGUI(D) should never hold-activate against SPC_NAV (misfiring cmd+space)
+  if (tap_hold_keycode == HRM_D && other_keycode == SPC_NAV) {
+      return false;
   }
   return get_chordal_hold_default(tap_hold_record, other_record);
 }

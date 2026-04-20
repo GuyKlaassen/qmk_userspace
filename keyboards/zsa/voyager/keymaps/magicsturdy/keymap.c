@@ -122,12 +122,12 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 
 // Exclusion on Chordal Hold
 // "nd" roll in "and" — N should never hold-activate against D
-chordal_hold_t get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
-                                uint16_t other_keycode, keyrecord_t *other_record) {
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                      uint16_t other_keycode, keyrecord_t *other_record) {
   if (tap_hold_keycode == HRM_N && other_keycode == HRM_D) {
-      return CHORDAL_HOLD_TAP;
+      return false;  // tap, not hold
   }
-  return CHORDAL_HOLD_DEFAULT;
+  return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
 #endif  // CHORDAL_HOLD

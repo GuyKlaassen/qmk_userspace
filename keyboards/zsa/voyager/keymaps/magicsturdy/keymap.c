@@ -119,8 +119,18 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
                     'R'    , 'R'    , 'R'    , 'R'    , 'R'    , '*'    ,
            '*'    , '*'
 );
-#endif  // CHORDAL_HOLD
 
+// Exclusion on Chordal Hold
+// "nd" roll in "and" — N should never hold-activate against D
+chordal_hold_t get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record,
+                                uint16_t other_keycode, keyrecord_t *other_record) {
+  if (tap_hold_keycode == HRM_N && other_keycode == HRM_D) {
+      return CHORDAL_HOLD_TAP;
+  }
+  return CHORDAL_HOLD_DEFAULT;
+}
+
+#endif  // CHORDAL_HOLD
 ///////////////////////////////////////////////////////////////////////////////
 // TAPPING TERM PER KEY
 ///////////////////////////////////////////////////////////////////////////////
